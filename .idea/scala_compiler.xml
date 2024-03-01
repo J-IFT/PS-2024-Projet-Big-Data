@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="sbt 1" modules="ps-2024-projet-big-data,ps-2024-projet-big-data_6108" />
+  </component>
+</project>
