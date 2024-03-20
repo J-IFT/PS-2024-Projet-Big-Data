@@ -1,10 +1,10 @@
 .*
 /.*
-/target
-/project/target
+*/target
+
 
 # Ignorer les grosfichiers
-/data/*
-!/data/.gitignore
+*/data/*
+!*/data/.gitignore
 
 !.gitignore
