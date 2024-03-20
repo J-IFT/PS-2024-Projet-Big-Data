@@ -1,0 +1,22 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\projet\src\main\scala\DataCollection.scala:12:36: invalid escape character[0m
+[0m[[0m[31merror[0m] [0m[0m    val data = spark.read.text("C:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\data\books_large_p1.txt")[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\projet\src\main\scala\DataCollection.scala:12:42: invalid escape character[0m
+[0m[[0m[31merror[0m] [0m[0m    val data = spark.read.text("C:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\data\books_large_p1.txt")[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\projet\src\main\scala\DataCollection.scala:12:48: invalid escape character[0m
+[0m[[0m[31merror[0m] [0m[0m    val data = spark.read.text("C:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\data\books_large_p1.txt")[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\projet\src\main\scala\DataCollection.scala:12:70: invalid escape character[0m
+[0m[[0m[31merror[0m] [0m[0m    val data = spark.read.text("C:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\data\books_large_p1.txt")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\projet\src\main\scala\DataCollection.scala:12:80: invalid escape character[0m
+[0m[[0m[31merror[0m] [0m[0m    val data = spark.read.text("C:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\data\books_large_p1.txt")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\projet\src\main\scala\DataCollection.scala:12:97: invalid escape character[0m
+[0m[[0m[31merror[0m] [0m[0m    val data = spark.read.text("C:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\data\books_large_p1.txt")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\projet\src\main\scala\DataCollection.scala:12:121: invalid escape character[0m
+[0m[[0m[31merror[0m] [0m[0m    val data = spark.read.text("C:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\data\books_large_p1.txt")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m7 errors found[0m
