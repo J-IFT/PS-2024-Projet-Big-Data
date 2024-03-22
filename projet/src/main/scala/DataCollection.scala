@@ -33,7 +33,6 @@ object DataCollection {
 
     // Pour la structuration des données
     val wordsList = BookProcessor.processBooks("../data/books_large_p1.txt", spark) // ../data/books_large_p2.txt POUR CHANGER DE FICHIER
-    val filePath = "output/book_1.txt"
 
     // Arrêter la session Spark
     spark.stop()
@@ -53,7 +52,7 @@ object BookProcessor {
       .option("header", "false")
       .schema(customSchema)
       .text(filePath)
-      .limit(30000) // A DECOCHER SI LE CODE PASSE LA PREMIERE FOIS ET SUPPRIMER LES FICHIERS GENERES
+      // .limit(100000) // A DECOCHER SI LE CODE PASSE LA PREMIERE FOIS ET SUPPRIMER LES FICHIERS GENERES
 
     // Ajouter une colonne avec l'indice de la ligne
     val linesWithIndexDF = linesDF.withColumn("lineIndex", monotonically_increasing_id())
@@ -85,13 +84,13 @@ object BookProcessor {
     println(s"Nombre de livres : ${bookDataFrames.size}")
 
     // Afficher les premières lignes des 3 premiers livres
-    // bookDataFrames.take(3).zipWithIndex.foreach { case (bookDF, index) =>
-    //   val firstLine = bookDF.first().getString(0)
-    //   println(s"Le livre $index, première ligne : $firstLine")
-    // }
+    bookDataFrames.take(3).zipWithIndex.foreach { case (bookDF, index) =>
+      val firstLine = bookDF.first().getString(0)
+      println(s"Le livre $index, première ligne : $firstLine")
+    }
 
     // Écrire chaque livre dans un fichier séparé
-    bookDataFrames.zipWithIndex.foreach { case (bookDF, index) =>
+    bookDataFrames.take(5).zipWithIndex.foreach { case (bookDF, index) =>
       val fileName = s"output/book_$index.txt"
       bookDF.rdd.map(_.getString(0)).toLocalIterator.grouped(1000).foreach { lines =>
         val writer = new BufferedWriter(new FileWriter(fileName, true))
