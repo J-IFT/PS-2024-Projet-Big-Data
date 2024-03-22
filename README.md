@@ -27,6 +27,13 @@ Livrables :
 + Visual Studio Code
 + Spark
 
+### Dépendances
+
+[NLTK](https://www.nltk.org)
+````bash
+pip install nltk==3.3
+````
+
 
 
 ## 🌸 Merci !
