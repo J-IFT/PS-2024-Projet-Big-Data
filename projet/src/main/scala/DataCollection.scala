@@ -53,7 +53,7 @@ object BookProcessor {
       .option("header", "false")
       .schema(customSchema)
       .text(filePath)
-      // .limit(30000) // A DECOCHER SI LE CODE PASSE LA PREMIERE FOIS ET SUPPRIMER LES FICHIERS GENERES
+      .limit(30000) // A DECOCHER SI LE CODE PASSE LA PREMIERE FOIS ET SUPPRIMER LES FICHIERS GENERES
 
     // Ajouter une colonne avec l'indice de la ligne
     val linesWithIndexDF = linesDF.withColumn("lineIndex", monotonically_increasing_id())
