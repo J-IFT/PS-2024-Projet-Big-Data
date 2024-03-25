@@ -3,7 +3,7 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.tokenize import sent_tokenize
 
 
-def get_avg_compound_for_sentences(sentences):
+def get_sentences_avg_compound(sentences):
     compound = 0
     for sentence in sentences:
         compound += vader.polarity_scores(sentence)['compound']
@@ -24,4 +24,4 @@ if __name__ == "__main__":
     vader = SentimentIntensityAnalyzer()
 
     print("Total: ", vader.polarity_scores(stateUnionRaw)["compound"])
-    print("Moyenne: ", get_avg_compound_for_sentences(sent_tokenize(stateUnionRaw)))
+    print("Moyenne: ", get_sentences_avg_compound(sent_tokenize(stateUnionRaw)))
