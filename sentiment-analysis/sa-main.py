@@ -9,4 +9,7 @@ words = [w for w in nltk.corpus.state_union.words() if w.isalpha()]
 words = [w for w in words if w.lower() not in stopwords]
 # Pour transformer un texte en liste de mots avec nltk: nltk.word_tokenize(text)
 
-print(words)
+# FREQUENCY DISTRIBUTION
+lower_fd = nltk.FreqDist([w.lower() for w in words])
+
+lower_fd.tabulate(10)
