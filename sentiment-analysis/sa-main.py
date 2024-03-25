@@ -1,15 +1,27 @@
 import nltk
+from nltk.sentiment import SentimentIntensityAnalyzer
+from nltk.tokenize import sent_tokenize
 
-# nltk.download(["stopwords", "names", "state_union"])
+# Décommenter la ligne ci dessous pour télécharger les données pour le modèle
+# nltk.download(["stopwords", "names", "state_union", "punkt"])
 
-stopwords = nltk.corpus.stopwords.words("english")
+# Récupère le fichier en texte brut
+# TODO: Remplacer avec les fichiers livres
+stateUnionRaw = nltk.corpus.state_union.raw('1945-Truman.txt')
 
-# w.isalpha() pour inclure seulement les "mots" composés de lettre. Sinon inclus la ponctuation
-words = [w for w in nltk.corpus.state_union.words() if w.isalpha()]
-words = [w for w in words if w.lower() not in stopwords]
-# Pour transformer un texte en liste de mots avec nltk: nltk.word_tokenize(text)
+stateUnionSentences = sent_tokenize(stateUnionRaw)
 
-# FREQUENCY DISTRIBUTION
-lower_fd = nltk.FreqDist([w.lower() for w in words])
+# Modèle prè-entrainé de NLTK
+vader = SentimentIntensityAnalyzer()
 
-lower_fd.tabulate(10)
+# Moyenne des compound des phrases
+compound = 0
+for sentence in stateUnionSentences:
+    compound += vader.polarity_scores(sentence)['compound']
+compound /= len(stateUnionSentences)
+
+print("Total")
+print(vader.polarity_scores(stateUnionRaw))
+
+print("Moyenne")
+print(compound)
