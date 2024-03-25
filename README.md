@@ -27,6 +27,15 @@ Livrables :
 + Visual Studio Code
 + Spark
 
+### ➕ Dépendances :
+
+N'oubliez pas de créer un environnement virtuel (venv ou conda)
+
+[NLTK](https://www.nltk.org/)
+```bash
+pip install nltk
+```
+
 
 
 ## 🌸 Merci !
