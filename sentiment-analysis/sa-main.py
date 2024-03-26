@@ -1,6 +1,9 @@
+import math
+from random import shuffle
+from statistics import mean
+
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
-from nltk.tokenize import sent_tokenize
 
 
 def get_sentences_avg_compound(sentences):
@@ -19,10 +22,33 @@ def skip_unwanted(pos_tuple):
         return False
 
     # NN: Noun, singular or mass
+    # Retire tout ce qui s'apparente à un nom commun ou propre
     if tag.startswith("NN"):
         return False
 
     return True
+
+
+def extract_features(text):
+    features = dict()
+    wordcount = 0
+    compound_scores = list()
+    positive_scores = list()
+
+    for sentence in nltk.sent_tokenize(text):
+        for word in nltk.word_tokenize(sentence):
+            if word.lower() in top_100_positive:
+                wordcount += 1
+        compound_scores.append(vader.polarity_scores(sentence)["compound"])
+        positive_scores.append(vader.polarity_scores(sentence)["pos"])
+
+    # Adding 1 to the final compound score to always have positive numbers
+    # since some classifiers you'll use later don't work with negative numbers.
+    features["mean_compound"] = mean(compound_scores) + 1
+    features["mean_positive"] = mean(positive_scores)
+    features["wordcount"] = wordcount
+
+    return features
 
 
 nltk.download(["stopwords", "names", "state_union", "punkt", "movie_reviews", "averaged_perceptron_tagger"])
@@ -64,5 +90,19 @@ if __name__ == "__main__":
     top_100_positive = {word for word, count in positive_fd.most_common(100)}
     top_100_negative = {word for word, count in negative_fd.most_common(100)}
 
-    print("top_100_positive: ", top_100_positive)
-    print("top_100_negative: ", top_100_negative)
+features = [
+    (extract_features(nltk.corpus.movie_reviews.raw(review)), "pos")
+    for review in nltk.corpus.movie_reviews.fileids(categories=["pos"])
+]
+features.extend([
+    (extract_features(nltk.corpus.movie_reviews.raw(review)), "neg")
+    for review in nltk.corpus.movie_reviews.fileids(categories=["neg"])
+])
+
+# Entrainer le classificateur
+
+train_count = math.floor(len(features) * 0.8)
+shuffle(features)
+classifier = nltk.NaiveBayesClassifier.train(features[:train_count])
+print(classifier.show_most_informative_features(10))
+print(nltk.classify.accuracy(classifier, features[train_count:]))
