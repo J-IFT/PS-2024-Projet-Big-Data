@@ -6,15 +6,6 @@ import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 
-def get_sentences_avg_compound(sentences):
-    compound = 0
-    for sentence in sentences:
-        compound += vader.polarity_scores(sentence)['compound']
-
-    # Arrondit à 4 chiffres pour correspondre au compound de vader
-    return round(compound / len(sentences), 4)
-
-
 def skip_unwanted(pos_tuple):
     word, tag = pos_tuple
 
