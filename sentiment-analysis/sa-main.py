@@ -51,6 +51,13 @@ def extract_features(text):
     return features
 
 
+def process_tokens(tokens):
+    return [word for word, tag in filter(
+        skip_unwanted,
+        nltk.pos_tag(tokens)
+    )]
+
+
 nltk.download(["stopwords", "names", "state_union", "punkt", "movie_reviews", "averaged_perceptron_tagger"])
 
 if __name__ == "__main__":
@@ -65,14 +72,8 @@ if __name__ == "__main__":
     unwanted_words.extend([w.lower() for w in nltk.corpus.names.words()])
 
     # Récupère les mots à connotation neg/pos en enlevant les mots inutiles grâce aux tags "Part Of Speech"
-    positive_words = [word for word, tag in filter(
-        skip_unwanted,
-        nltk.pos_tag(nltk.corpus.movie_reviews.words(categories=["pos"]))
-    )]
-    negative_words = [word for word, tag in filter(
-        skip_unwanted,
-        nltk.pos_tag(nltk.corpus.movie_reviews.words(categories=["neg"]))
-    )]
+    positive_words = process_tokens(nltk.corpus.movie_reviews.words(categories=["pos"]))
+    negative_words = process_tokens(nltk.corpus.movie_reviews.words(categories=["neg"]))
 
     # Frequency distribution
     # Récupères les mots à connotation les plus présents
@@ -100,9 +101,10 @@ features.extend([
 ])
 
 # Entrainer le classificateur
-
 train_count = math.floor(len(features) * 0.8)
 shuffle(features)
 classifier = nltk.NaiveBayesClassifier.train(features[:train_count])
-print(classifier.show_most_informative_features(10))
-print(nltk.classify.accuracy(classifier, features[train_count:]))
+print("Précision du modèle: ", nltk.classify.accuracy(classifier, features[train_count:]))
+
+print(classifier.classify(extract_features(stateUnionRaw)))
+print(extract_features(stateUnionRaw))
