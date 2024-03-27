@@ -82,20 +82,20 @@ if __name__ == "__main__":
     top_100_positive = {word for word, count in positive_fd.most_common(100)}
     top_100_negative = {word for word, count in negative_fd.most_common(100)}
 
-features = [
-    (extract_features(nltk.corpus.movie_reviews.raw(review)), "pos")
-    for review in nltk.corpus.movie_reviews.fileids(categories=["pos"])
-]
-features.extend([
-    (extract_features(nltk.corpus.movie_reviews.raw(review)), "neg")
-    for review in nltk.corpus.movie_reviews.fileids(categories=["neg"])
-])
+    features = [
+        (extract_features(nltk.corpus.movie_reviews.raw(review)), "pos")
+        for review in nltk.corpus.movie_reviews.fileids(categories=["pos"])
+    ]
+    features.extend([
+        (extract_features(nltk.corpus.movie_reviews.raw(review)), "neg")
+        for review in nltk.corpus.movie_reviews.fileids(categories=["neg"])
+    ])
 
-# Entrainer le classificateur
-train_count = math.floor(len(features) * 0.8)
-shuffle(features)
-classifier = nltk.NaiveBayesClassifier.train(features[:train_count])
-print("Précision du modèle: ", nltk.classify.accuracy(classifier, features[train_count:]))
+    # Entrainer le classificateur
+    train_count = math.floor(len(features) * 0.8)
+    shuffle(features)
+    classifier = nltk.NaiveBayesClassifier.train(features[:train_count])
+    print("Précision du modèle: ", nltk.classify.accuracy(classifier, features[train_count:]))
 
-print(classifier.classify(extract_features(stateUnionRaw)))
-print(extract_features(stateUnionRaw))
+    print(classifier.classify(extract_features(stateUnionRaw)))
+    print(extract_features(stateUnionRaw))
