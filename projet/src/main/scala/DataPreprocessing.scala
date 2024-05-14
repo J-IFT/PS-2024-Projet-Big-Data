@@ -18,9 +18,8 @@ object DataPreprocessing {
     // Prétraitement des données
     val cleanData = preprocessData(data, spark)
 
-    // Afficher les premières lignes des données prétraitées
-    println("Clean Data:")
-    cleanData.show(truncate = false)
+    // Sauvegarder les données prétraitées dans un fichier texte
+    saveCleanData(cleanData)
 
     // Arrêter la session Spark
     spark.stop()
@@ -52,5 +51,16 @@ object DataPreprocessing {
     val cleanData = pipeline.fit(data).transform(data)
 
     cleanData
+  }
+
+  def saveCleanData(cleanData: DataFrame): Unit = {
+    // Collecter les données prétraitées au format texte dans un seul DataFrame
+    val textData = cleanData.select("filteredWords").collect.map(_.getString(0)).mkString("\n")
+
+    // Créer un DataFrame avec une seule colonne et une seule ligne contenant les données prétraitées
+    val textDataFrame = cleanData.sparkSession.createDataFrame(Seq(textData)).toDF("text")
+
+    // Sauvegarder les données prétraitées dans un fichier texte
+    textDataFrame.write.text("output/clean_data.txt")
   }
 }

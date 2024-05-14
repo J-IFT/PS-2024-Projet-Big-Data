@@ -1,7 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0mD:\Documents\Ecole\EPSI\Master\COURS\Alt Big Data - Jérémy Suzan\PS-2024-Projet-Big-Data\projet\src\main\scala\DataCollection.scala:6:25: object ml is not a member of package org.apache.spark[0m
-[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.ml.feature.StopWordsRemover[0m
-[0m[[0m[31merror[0m] [0m[0m                        ^[0m
-[0m[[0m[31merror[0m] [0m[0mD:\Documents\Ecole\EPSI\Master\COURS\Alt Big Data - Jérémy Suzan\PS-2024-Projet-Big-Data\projet\src\main\scala\DataCollection.scala:7:25: object ml is not a member of package org.apache.spark[0m
-[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.ml.feature.CountVectorizer[0m
-[0m[[0m[31merror[0m] [0m[0m                        ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\projet\src\main\scala\DataPreprocessing.scala:59:44: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : org.apache.spark.sql.expressions.UserDefinedFunction[0m
+[0m[[0m[31merror[0m] [0m[0m required: org.apache.spark.ml.PipelineStage[0m
+[0m[[0m[31merror[0m] [0m[0m      .setStages(Array(tokenizer, remover, filterWordsUDF, vectorizer))[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
