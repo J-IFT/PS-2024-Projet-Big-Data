@@ -53,4 +53,6 @@ object DataPreprocessing {
 
     cleanData
   }
+  //Rajouter du code ici qui permet de récupérer le fichier traité au format txt
+  //Le fichier traité sera alors utile pour l'analyse de sentiment et le reste du projet
 }
