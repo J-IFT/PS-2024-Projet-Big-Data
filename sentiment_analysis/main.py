@@ -13,7 +13,7 @@ nltk.download([
     "punkt",
 ])
 
-# ==== ENTRAINEMENT DU MODELE ====
+# region==== ENTRAINEMENT DU MODELE ====
 # Le but est de récolter les mots présents dans les reviews de films déjà catégoriés.
 # En comparant les deux listes de mots on peux supprimer les mots en communs pour
 # obtenir une liste de mots à forte connotation positive ou négative.
@@ -100,3 +100,4 @@ classifier = nltk.NaiveBayesClassifier.train(features[:train_count])
 
 # Précision du nouveau modèle
 print(nltk.classify.accuracy(classifier, features[train_count:]))
+# endregion
