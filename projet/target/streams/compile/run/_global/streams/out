@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0morg.apache.spark.sql.AnalysisException: [PATH_ALREADY_EXISTS] Path file:/C:/Users/julie/OneDrive - Ifag Paris/Documents/Atelier Big Data/PS-2024-Projet-Big-Data/projet/output/clean_data.txt already exists. Set mode as "overwrite" to overwrite the existing path.[0m
+[0m[[0m[31merror[0m] [0m[0morg.apache.spark.sql.AnalysisException: [PATH_ALREADY_EXISTS] Path file:/C:/Users/julie/OneDrive - Ifag Paris/Documents/Atelier Big Data/PS-2024-Projet-Big-Data/projet/output/bigdata already exists. Set mode as "overwrite" to overwrite the existing path.[0m
 [0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.errors.QueryCompilationErrors$.outputPathAlreadyExistsError(QueryCompilationErrors.scala:1666)[0m
 [0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:123)[0m
 [0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)[0m
@@ -29,10 +29,9 @@
 [0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:388)[0m
 [0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:361)[0m
 [0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:240)[0m
-[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.DataFrameWriter.text(DataFrameWriter.scala:833)[0m
-[0m[[0m[31merror[0m] [0m[0m	at DataPreprocessing$.preprocessData(DataPreprocessing.scala:55)[0m
-[0m[[0m[31merror[0m] [0m[0m	at DataPreprocessing$.main(DataPreprocessing.scala:19)[0m
-[0m[[0m[31merror[0m] [0m[0m	at DataPreprocessing.main(DataPreprocessing.scala)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.DataFrameWriter.csv(DataFrameWriter.scala:850)[0m
+[0m[[0m[31merror[0m] [0m[0m	at BigData$.main(BigData.scala:22)[0m
+[0m[[0m[31merror[0m] [0m[0m	at BigData.main(BigData.scala)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[0m
@@ -50,4 +49,4 @@
 [0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.Thread.run(Thread.java:829)[0m
-[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) org.apache.spark.sql.AnalysisException: [PATH_ALREADY_EXISTS] Path file:/C:/Users/julie/OneDrive - Ifag Paris/Documents/Atelier Big Data/PS-2024-Projet-Big-Data/projet/output/clean_data.txt already exists. Set mode as "overwrite" to overwrite the existing path.[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) org.apache.spark.sql.AnalysisException: [PATH_ALREADY_EXISTS] Path file:/C:/Users/julie/OneDrive - Ifag Paris/Documents/Atelier Big Data/PS-2024-Projet-Big-Data/projet/output/bigdata already exists. Set mode as "overwrite" to overwrite the existing path.[0m
