@@ -1,4 +1,5 @@
 import pickle
+import pandas as pd
 from random import shuffle
 from statistics import mean
 
@@ -53,10 +54,8 @@ def get_top_100_words():
 
 
 # Crée des features pour représenter les reviews en se concentrant sur le positif.
-def extract_features(text):
+def extract_features(text, model):
     print("Extract features")
-    # Modèle préentrainé de NLTK
-    vader = SentimentIntensityAnalyzer()
     top_100_positive, top_100_negative = get_top_100_words()
 
     features = dict()
@@ -68,8 +67,8 @@ def extract_features(text):
         for word in nltk.word_tokenize(sentence):
             if word.lower() in top_100_positive:
                 wordcount += 1
-        compound_scores.append(vader.polarity_scores(sentence)["compound"])
-        positive_scores.append(vader.polarity_scores(sentence)["pos"])
+        compound_scores.append(model.polarity_scores(sentence)["compound"])
+        positive_scores.append(model.polarity_scores(sentence)["pos"])
 
     features["mean_compound"] = mean(compound_scores) + 1  # moyenne du sentiment général des phrases de la review
     features["mean_positive"] = mean(positive_scores)  # moyenne des scores de positivités des phrases
@@ -89,12 +88,15 @@ def create_nb_classifier():
         "punkt",
     ])
 
+    # Modèle préentrainé de NLTK
+    vader = SentimentIntensityAnalyzer()
+
     features = [
-        (extract_features(nltk.corpus.movie_reviews.raw(review)), "pos")
+        (extract_features(nltk.corpus.movie_reviews.raw(review), vader), "pos")
         for review in nltk.corpus.movie_reviews.fileids(categories=["pos"])
     ]
     features.extend([
-        (extract_features(nltk.corpus.movie_reviews.raw(review)), "neg")
+        (extract_features(nltk.corpus.movie_reviews.raw(review), vader), "neg")
         for review in nltk.corpus.movie_reviews.fileids(categories=["neg"])
     ])
 
@@ -124,7 +126,26 @@ except FileNotFoundError:
 
 
 # Charger le fichier livre nettoyé
+book_path = "./data/book_1_clean.txt"
+with open(book_path) as f:
+    book = f.read().replace('\n', '')
 
-# Extraire les features du texte
+# Occurrence
+print("Starting counting occurrences...")
+book_fd = nltk.FreqDist(nltk.word_tokenize(book))
+most_commons = {word: count for word, count in book_fd.most_common(50)}
+print("Most common words: ", most_commons)
+
+df_most_commons = pd.DataFrame(list(most_commons.items()), columns=['Word', 'Frequency'])
+df_most_commons.to_csv('./data/occurrence.csv', index=False)
 
 # Juger de la positivité du texte
+print("Starting sentiment analysis...")
+vader = SentimentIntensityAnalyzer()
+book_polarity = vader.polarity_scores(book)
+print("Book polarity: ", book_polarity)
+
+df_book_polarity = pd.DataFrame(list(book_polarity.items()), columns=['Sentiment', 'Value'])
+df_book_polarity.to_csv('./data/sentiment_analysis.csv', index=False)
+
+print("All done.")
