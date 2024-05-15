@@ -14,8 +14,10 @@ object DataPreprocessing {
 			.config("spark.master", "local[4]")  // Utilisation de 4 threads locaux
 			.getOrCreate()
 
+		// Numéro de book a traiter
+		val book = 0
 		// Charger les données à partir du fichier texte
-		val data = spark.read.text("output/book_1.txt")
+		val data = spark.read.text("output/book_"+book+".txt")
 
 		// Pour mieux filtrer certains mots
 		val blacklist = Seq("isbn")
@@ -29,7 +31,7 @@ object DataPreprocessing {
 		cleanData.show(truncate = false)
 
 		// Sauvegarder les données prétraitées dans un fichier texte
-		saveData(cleanData, "output/book_1_clean")
+		saveData(cleanData, "output/bigdataprocessing/book_"+book+"_clean")
 
 		// Arrêter la session Spark
 		spark.stop()
