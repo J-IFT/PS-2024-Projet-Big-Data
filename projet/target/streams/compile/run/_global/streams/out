@@ -4,7 +4,7 @@
 [0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$Simple.run(ProcessBuilderImpl.scala:85)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.run(ProcessBuilderImpl.scala:117)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.run(ProcessBuilderImpl.scala:116)[0m
-[0m[[0m[31merror[0m] [0m[0m	at ResultVisualization$.main(ResultVisualization.scala:12)[0m
+[0m[[0m[31merror[0m] [0m[0m	at ResultVisualization$.main(ResultVisualization.scala:13)[0m
 [0m[[0m[31merror[0m] [0m[0m	at ResultVisualization.main(ResultVisualization.scala)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[0m
@@ -32,7 +32,7 @@
 [0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$Simple.run(ProcessBuilderImpl.scala:85)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.run(ProcessBuilderImpl.scala:117)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.run(ProcessBuilderImpl.scala:116)[0m
-[0m[[0m[31merror[0m] [0m[0m	at ResultVisualization$.main(ResultVisualization.scala:12)[0m
+[0m[[0m[31merror[0m] [0m[0m	at ResultVisualization$.main(ResultVisualization.scala:13)[0m
 [0m[[0m[31merror[0m] [0m[0m	at ResultVisualization.main(ResultVisualization.scala)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[0m

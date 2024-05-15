@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Résultat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-<h1>Résultat pour {{ selected_book }}</h1>
-<p>test</p>
-<h2>Graphique d'Occurrence des Mots</h2>
+<h1>Résultat pour {{ selected_book }} :</h1>
+<h2>Graphique à barres (occurrence des mots)</h2>
 <canvas id="wordOccurrenceChart" width="400" height="400"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -20,8 +20,8 @@
     datasets: [{
         label: 'Occurrences',
         data: {{ occurrences | tojson }},
-    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
+    backgroundColor: 'rgb(255,99,187)',
+        borderColor: 'rgb(252,0,133)',
         borderWidth: 1
     }]
     },
@@ -34,5 +34,39 @@
     }
     });
 </script>
+<h2>Graphique camembert (analyse de sentiment)</h2>
+<canvas id="sentimentAnalysisChart" width="400" height="400"></canvas>
+<script>
+    var ctx = document.getElementById('sentimentAnalysisChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: {{ sentiments | tojson }},
+    datasets: [{
+        label: 'Sentiment Analysis',
+        data: {{ values | tojson }},
+    backgroundColor: [
+        'rgb(255,99,99)',  // Negatif
+        'rgb(255,221,137)',  // Neutre
+        'rgb(113,250,104)',  // Positif
+    ],
+        borderColor: [
+        'rgb(255,99,99)',
+        'rgb(255,221,137)',
+        'rgb(113,250,104)',
+    ],
+        borderWidth: 1
+    }]
+    },
+    options: {
+        responsive: true
+    }
+    });
+</script>
+
+{% if compound_value %}
+<h2>Compound Value</h2>
+<p>{{ compound_value }}</p>
+{% endif %}
 </body>
 </html>

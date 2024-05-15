@@ -1,3 +1,4 @@
+//ETAPE 6
 import scala.sys.process._
 
 object ResultVisualization {

@@ -1,4 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\julie\OneDrive - Ifag Paris\Documents\Atelier Big Data\PS-2024-Projet-Big-Data\projet\src\main\scala\ResultVisualization.scala:3:8: AdvancedAIIntegration is already defined as object AdvancedAIIntegration[0m
-[0m[[0m[31merror[0m] [0m[0mobject AdvancedAIIntegration {[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[33mwarn[0m] [0m[0m1 deprecation (since 2.13.0); re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
