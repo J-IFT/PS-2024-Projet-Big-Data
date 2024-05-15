@@ -1,20 +1,11 @@
-[0m[[0m[31merror[0m] [0m[0mjava.io.FileNotFoundException: ..\output\book_0.txt (Le chemin d’accès spécifié est introuvable)[0m
-[0m[[0m[31merror[0m] [0m[0m	at java.base/java.io.FileOutputStream.open0(Native Method)[0m
-[0m[[0m[31merror[0m] [0m[0m	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:298)[0m
-[0m[[0m[31merror[0m] [0m[0m	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)[0m
-[0m[[0m[31merror[0m] [0m[0m	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:158)[0m
-[0m[[0m[31merror[0m] [0m[0m	at java.base/java.io.FileWriter.<init>(FileWriter.java:82)[0m
-[0m[[0m[31merror[0m] [0m[0m	at BookProcessor$.$anonfun$processBooks$5(DataCollection.scala:96)[0m
-[0m[[0m[31merror[0m] [0m[0m	at BookProcessor$.$anonfun$processBooks$5$adapted(DataCollection.scala:95)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:576)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:574)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterator.foreach(Iterator.scala:1300)[0m
-[0m[[0m[31merror[0m] [0m[0m	at BookProcessor$.$anonfun$processBooks$3(DataCollection.scala:95)[0m
-[0m[[0m[31merror[0m] [0m[0m	at BookProcessor$.$anonfun$processBooks$3$adapted(DataCollection.scala:93)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.ArrayOps$.foreach$extension(ArrayOps.scala:1323)[0m
-[0m[[0m[31merror[0m] [0m[0m	at BookProcessor$.processBooks(DataCollection.scala:93)[0m
-[0m[[0m[31merror[0m] [0m[0m	at DataCollection$.main(DataCollection.scala:35)[0m
-[0m[[0m[31merror[0m] [0m[0m	at DataCollection.main(DataCollection.scala)[0m
+[0m[[0m[31merror[0m] [0m[0mjava.io.IOException: Cannot run program "scripts/ResultVisualization.py": CreateProcess error=193, %1 n’est pas une application Win32 valide[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1128)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1071)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$Simple.run(ProcessBuilderImpl.scala:85)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.run(ProcessBuilderImpl.scala:117)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.run(ProcessBuilderImpl.scala:116)[0m
+[0m[[0m[31merror[0m] [0m[0m	at ResultVisualization$.main(ResultVisualization.scala:13)[0m
+[0m[[0m[31merror[0m] [0m[0m	at ResultVisualization.main(ResultVisualization.scala)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[0m
@@ -32,4 +23,32 @@
 [0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.Thread.run(Thread.java:829)[0m
-[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) java.io.FileNotFoundException: ..\output\book_0.txt (Le chemin d’accès spécifié est introuvable)[0m
+[0m[[0m[31merror[0m] [0m[0mCaused by: java.io.IOException: CreateProcess error=193, %1 n’est pas une application Win32 valide[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.ProcessImpl.create(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:492)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:153)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1107)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1071)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$Simple.run(ProcessBuilderImpl.scala:85)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.run(ProcessBuilderImpl.scala:117)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.run(ProcessBuilderImpl.scala:116)[0m
+[0m[[0m[31merror[0m] [0m[0m	at ResultVisualization$.main(ResultVisualization.scala:13)[0m
+[0m[[0m[31merror[0m] [0m[0m	at ResultVisualization.main(ResultVisualization.scala)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.reflect.Method.invoke(Method.java:566)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.invokeMain(Run.scala:144)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.execute$1(Run.scala:94)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.$anonfun$runWithLoader$5(Run.scala:121)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run$.executeSuccess(Run.scala:187)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.runWithLoader(Run.scala:121)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$bgRunTask$6(Defaults.scala:1988)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$termWrapper$2(Defaults.scala:1927)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.util.Try$.apply(Try.scala:213)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.BackgroundThreadPool$BackgroundRunnable.run(DefaultBackgroundJobService.scala:367)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.Thread.run(Thread.java:829)[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) java.io.IOException: Cannot run program "scripts/ResultVisualization.py": CreateProcess error=193, %1 n’est pas une application Win32 valide[0m
