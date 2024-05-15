@@ -109,7 +109,7 @@ def create_nb_classifier():
     print(nltk.classify.accuracy(classifier, features[train_count:]))
 
     # Sauvegarde le classifier
-    with (open("./sentiment_analysis/nb_classifier.pickle", "wb") as new_classifier_file):
+    with (open("./projet/scripts/nb_classifier.pickle", "wb") as new_classifier_file):
         pickle.dump(classifier, new_classifier_file)
 
     return classifier
@@ -118,7 +118,7 @@ def create_nb_classifier():
 
 try:
     print("Opening the pickle jar...")
-    with open("./sentiment_analysis/nb_classifier.pickle", "rb") as f:
+    with open("./projet/scripts/nb_classifier.pickle", "rb") as f:
         nb_classifier = pickle.load(f)
 except FileNotFoundError:
     print("Pickle Jar doesn't exist, creating a new one...")
@@ -126,7 +126,8 @@ except FileNotFoundError:
 
 
 # Charger le fichier livre nettoyé
-book_path = "./data/book_1_clean.txt"
+book_nb = 4
+book_path = f"./projet/output/bigdataprocessing/book_{book_nb}_clean.txt"
 with open(book_path) as f:
     book = f.read().replace("\n", "")
 
@@ -137,7 +138,7 @@ most_commons = {word: count for word, count in book_fd.most_common(50)}
 print("Most common words: ", most_commons)
 
 df_most_commons = pd.DataFrame(list(most_commons.items()), columns=["Word", "Frequency"])
-df_most_commons.to_csv("./projet/output/sentimentanalysis/book_1-occurrence.csv", index=False)
+df_most_commons.to_csv(f"./projet/output/sentimentanalysis/book_{book_nb}-occurrence.csv", index=False)
 
 # Juger de la positivité du texte
 print("Starting sentiment analysis...")
@@ -146,6 +147,6 @@ book_polarity = vader.polarity_scores(book)
 print("Book polarity: ", book_polarity)
 
 df_book_polarity = pd.DataFrame(list(book_polarity.items()), columns=["Sentiment", "Value"])
-df_book_polarity.to_csv("./projet/output/sentimentanalysis/book_1-sentimentanalysis.csv", index=False)
+df_book_polarity.to_csv(f"./projet/output/sentimentanalysis/book_{book_nb}-sentimentanalysis.csv", index=False)
 
 print("All done.")
