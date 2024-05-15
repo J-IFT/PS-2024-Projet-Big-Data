@@ -128,7 +128,7 @@ except FileNotFoundError:
 # Charger le fichier livre nettoyé
 book_path = "./data/book_1_clean.txt"
 with open(book_path) as f:
-    book = f.read().replace('\n', '')
+    book = f.read().replace("\n", "")
 
 # Occurrence
 print("Starting counting occurrences...")
@@ -136,8 +136,8 @@ book_fd = nltk.FreqDist(nltk.word_tokenize(book))
 most_commons = {word: count for word, count in book_fd.most_common(50)}
 print("Most common words: ", most_commons)
 
-df_most_commons = pd.DataFrame(list(most_commons.items()), columns=['Word', 'Frequency'])
-df_most_commons.to_csv('./data/occurrence.csv', index=False)
+df_most_commons = pd.DataFrame(list(most_commons.items()), columns=["Word", "Frequency"])
+df_most_commons.to_csv("./projet/output/sentimentanalysis/book_1-occurrence.csv", index=False)
 
 # Juger de la positivité du texte
 print("Starting sentiment analysis...")
@@ -145,7 +145,7 @@ vader = SentimentIntensityAnalyzer()
 book_polarity = vader.polarity_scores(book)
 print("Book polarity: ", book_polarity)
 
-df_book_polarity = pd.DataFrame(list(book_polarity.items()), columns=['Sentiment', 'Value'])
-df_book_polarity.to_csv('./data/sentiment_analysis.csv', index=False)
+df_book_polarity = pd.DataFrame(list(book_polarity.items()), columns=["Sentiment", "Value"])
+df_book_polarity.to_csv("./projet/output/sentimentanalysis/book_1-sentimentanalysis.csv", index=False)
 
 print("All done.")
