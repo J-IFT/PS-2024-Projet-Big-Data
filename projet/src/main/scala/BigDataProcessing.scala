@@ -1,7 +1,7 @@
 import org.apache.spark.sql.{Dataset, SparkSession}
 import org.apache.spark.sql.Encoders.STRING
 
-object BigData {
+object BigDataProcessing {
   def main(args: Array[String]): Unit = {
     // Créer une session Spark
     val spark = SparkSession.builder()
