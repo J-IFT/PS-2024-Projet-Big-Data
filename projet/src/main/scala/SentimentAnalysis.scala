@@ -3,7 +3,7 @@ import scala.sys.process._
 object SentimentAnalysis {
   def main(args: Array[String]): Unit = {
     // Chemin vers le script Python que tu veux exécuter
-    val pythonScriptPath = "sentiment-analysis/SentimentAnalysis.py"
+    val pythonScriptPath = "scripts/SentimentAnalysis.py"
 
     // Créer un ProcessBuilder pour exécuter le script Python
     val pb = Process(pythonScriptPath)

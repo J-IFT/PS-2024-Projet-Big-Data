@@ -1,3 +1,4 @@
+//ETAPE 1
 import org.apache.spark.sql.{SparkSession, Row}
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.functions._

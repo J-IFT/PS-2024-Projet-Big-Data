@@ -1,3 +1,4 @@
+//ETAPE 2 ET 4
 import org.apache.spark.sql.{SparkSession, DataFrame}
 import org.apache.spark.sql.functions._
 import org.apache.spark.ml.feature.{StopWordsRemover, CountVectorizer}

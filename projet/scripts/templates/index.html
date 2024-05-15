@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+<h1>Liste des Livres</h1>
+<ul>
+    {% for book in books %}
+    <li><a href="/result" onclick="event.preventDefault(); document.getElementById('selected_book_index').value = {{ loop.index0 }}; document.getElementById('book_form').submit();">{{ book }}</a></li>
+    {% endfor %}
+</ul>
+<form id="book_form" action="/result" method="post" style="display: none;">
+    <input type="hidden" name="selected_book_index" id="selected_book_index">
+</form>
+</body>
+</html>
